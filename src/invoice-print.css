@@ -1,0 +1,52 @@
+/**
+ * Browser print (Save as PDF / paper) for invoice + OR preview.
+ * Uses visibility so only .ic-print-zone appears when printing.
+ */
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  .ic-print-zone,
+  .ic-print-zone * {
+    visibility: visible !important;
+  }
+
+  .ic-print-zone {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .ic-print-doc {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .ic-print-doc--or {
+    page-break-before: always;
+    margin-top: 0 !important;
+  }
+}
